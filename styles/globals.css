@@ -1,42 +1,66 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{
+    --primary:#000080;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body{
+    background-image: url('https://imgs.search.brave.com/jnwZP_0xdutt5GWhU9EP0GdYjRyoLsLYrBF7XEtVaoY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9ncnVuZ2UtYmFj/a2dyb3VuZC13aXRo/LXNwYWNlLXRleHQt/aW1hZ2VfMTk2MDM4/LTE0NjY1LmpwZz9z/ZW10PWFpc19oeWJy/aWQ');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #343A40;
+    margin: 3rem;
+}
+h1{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color:var(--primary);
+}
+.bids{
+   color:#10b981;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.asks{
+    color:#ef4444;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.container{
+
+    padding: 2rem;
+}
+.head{
+    color:var(--primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.orderbook {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 1rem;
+}
+.increase {
+  background-color: rgba(0, 255, 0, 0.2); /* Light green */
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+.decrease {
+  background-color: rgba(255, 0, 0, 0.2); /* Light red */
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@media (max-width: 768px) {
+    .orderbook {
+        grid-template-columns: 1fr; /* Change to one column */
+    }
+    body{
+        margin: 0;
+    }
 }
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+@media (min-width: 1200px) {
+    .orderbook {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
